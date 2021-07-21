@@ -32,33 +32,67 @@ canvas.addEventListener("mouseup", function(e){
 
 //вибрати розмір пера
 document.getElementById("pencil").onclick = function() {    
-    ctx.lineWidth = 1;
+    ctx.lineWidth = 2;
+    document.getElementById("pencil").style.background = "grey";
+    document.getElementById("crayon").style.background = "";
+    document.getElementById("marker").style.background = "";
 };
 document.getElementById("crayon").onclick = function() {    
-    ctx.lineWidth = 3;
+    ctx.lineWidth = 4;
+    document.getElementById("pencil").style.background = "";
+    document.getElementById("crayon").style.background = "grey";
+    document.getElementById("marker").style.background = "";
 };
 document.getElementById("marker").onclick = function() {    
     ctx.lineWidth = 7;
+    document.getElementById("pencil").style.background = "";
+    document.getElementById("crayon").style.background = "";
+    document.getElementById("marker").style.background = "grey";
 };
 
 
 //вибрати колір
 document.getElementById("clrR").onclick = function() {    
     ctx.strokeStyle = "red";
+    document.getElementById("clrR").style.height = '36px';
+    document.getElementById("clrG").style.height = '16px';
+    document.getElementById("clrB").style.height = '16px';
+    document.getElementById("clrY").style.height = '16px';
 };
 document.getElementById("clrG").onclick = function() {    
     ctx.strokeStyle = "green";
+    document.getElementById("clrR").style.height = '16px';
+    document.getElementById("clrG").style.height = '36px';
+    document.getElementById("clrB").style.height = '16px';
+    document.getElementById("clrY").style.height = '16px';
 };
 document.getElementById("clrB").onclick = function() {    
     ctx.strokeStyle = "blue";
+    document.getElementById("clrR").style.height = '16px';
+    document.getElementById("clrG").style.height = '16px';
+    document.getElementById("clrB").style.height = '36px';
+    document.getElementById("clrY").style.height = '16px';
 };
 document.getElementById("clrY").onclick = function() {   
     ctx.strokeStyle = "yellow";
+    document.getElementById("clrR").style.height = '16px';
+    document.getElementById("clrG").style.height = '16px';
+    document.getElementById("clrB").style.height = '16px';
+    document.getElementById("clrY").style.height = '36px';
 };
 
 // очистити полотно
 document.getElementById("cleaner").onclick = function() {
     ctx.clearRect(0, 0, w, h);
+    ctx.lineWidth = 1;
+    document.getElementById("clrR").style.height = '16px';
+    document.getElementById("clrG").style.height = '16px';
+    document.getElementById("clrB").style.height = '16px';
+    document.getElementById("clrY").style.height = '16px';
+    document.getElementById("pencil").style.background = "";
+    document.getElementById("crayon").style.background = "";
+    document.getElementById("marker").style.background = "";
+
 };
 
 
