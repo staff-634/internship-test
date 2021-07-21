@@ -1,32 +1,57 @@
-function changeClr(){
-	let clrR = document.getElementById("clrR");
-	let clrG = document.getElementById("clrG");
-	let clrB = document.getElementById("clrB");
-	let clrY = document.getElementById("clrY");
-	clrR.onclick()
-		clrR.style.height = 36+'px';
-		clrG.style.height = "16px";
-		clrB.style.height = "16px";
-		clrY.style.height = "16px";
-	
-}
-let cnv = document.getElementById("canvas");
-let ctx = cnv.getContext('2d');
+let canvas = document.getElementById("canvas");
+let ctx = canvas.getContext('2d');
+// малюємо на полотні
+w = canvas.width,
+h = canvas.height;                 
+var mouse = { x:0, y:0};
+var draw = false;             
+canvas.addEventListener("mousedown", function(e){                 
+    mouse.x = e.pageX - this.offsetLeft;
+    mouse.y = e.pageY - this.offsetTop;
+    draw = true;
+    ctx.beginPath();
+    ctx.moveTo(mouse.x, mouse.y);
+});
+canvas.addEventListener("mousemove", function(e){                 
+    if(draw==true){                  
+        mouse.x = e.pageX - this.offsetLeft;
+        mouse.y = e.pageY - this.offsetTop;
+        ctx.lineTo(mouse.x, mouse.y);
+        ctx.stroke();
+    }
+});
+canvas.addEventListener("mouseup", function(e){
+    mouse.x = e.pageX - this.offsetLeft;
+    mouse.y = e.pageY - this.offsetTop;
+    ctx.lineTo(mouse.x, mouse.y);
+    ctx.stroke();
+    ctx.closePath();
+    draw = false;
+});
+// очистити полотно
+document.getElementById("cleaner").onclick = function() {
+    ctx.clearRect(0, 0, w, h);
+};
 
-cnv.onmousemove = function(e) {
-      var mouseX = e.pageX - this.offsetLeft;
-  var mouseY = e.pageY - this.offsetTop;
-		
-  paint = true;
-  addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop);
-  redraw();
-    };
 
+
+ 
+
+
+
+
+
+
+
+
+
+
+// розмір полотна
 document.getElementById("r1").oninput = function () {
     let rngX = document.getElementById("r1");
-    cnv.width = rngX.value;
+    canvas.width = rngX.value;
 }
 document.getElementById("r2").oninput = function () {
     let rngY = document.getElementById("r2");
-    cnv.height = rngY.value;
+    canvas.height = rngY.value;
 }
