@@ -1,5 +1,6 @@
 let canvas = document.getElementById("canvas");
 let ctx = canvas.getContext('2d');
+
 // малюємо на полотні
 w = canvas.width,
 h = canvas.height;                 
@@ -28,10 +29,29 @@ canvas.addEventListener("mouseup", function(e){
     ctx.closePath();
     draw = false;
 });
+
+//вибрати розмір пера
+
+
+//вибрати колір
+document.getElementById("clrR").onclick = function() {    
+    ctx.strokeStyle = "red";
+};
+document.getElementById("clrG").onclick = function() {    
+    ctx.strokeStyle = "green";
+};
+document.getElementById("clrB").onclick = function() {    
+    ctx.strokeStyle = "blue";
+};
+document.getElementById("clrY").onclick = function() {   
+    ctx.strokeStyle = "yellow";
+};
+
 // очистити полотно
 document.getElementById("cleaner").onclick = function() {
     ctx.clearRect(0, 0, w, h);
 };
+
 
 
 
@@ -46,7 +66,7 @@ document.getElementById("cleaner").onclick = function() {
 
 
 
-// розмір полотна
+//всановлюємо розмір полотна
 document.getElementById("r1").oninput = function () {
     let rngX = document.getElementById("r1");
     canvas.width = rngX.value;
