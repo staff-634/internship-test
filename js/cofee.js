@@ -31,6 +31,15 @@ canvas.addEventListener("mouseup", function(e){
 });
 
 //вибрати розмір пера
+document.getElementById("pencil").onclick = function() {    
+    ctx.lineWidth = 1;
+};
+document.getElementById("crayon").onclick = function() {    
+    ctx.lineWidth = 3;
+};
+document.getElementById("marker").onclick = function() {    
+    ctx.lineWidth = 7;
+};
 
 
 //вибрати колір
