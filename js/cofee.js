@@ -1,6 +1,6 @@
 let canvas = document.getElementById("canvas");
 let ctx = canvas.getContext('2d');
-
+let img = new Image();
 // малюємо на полотні
 w = canvas.width,
 h = canvas.height;                 
@@ -85,6 +85,9 @@ document.getElementById("clrY").onclick = function() {
 document.getElementById("cleaner").onclick = function() {
     ctx.clearRect(0, 0, w, h);
     ctx.lineWidth = 1;
+    img.src = "";
+    canvas.width = 400,
+    canvas.height = 400;    
     document.getElementById("clrR").style.height = '16px';
     document.getElementById("clrG").style.height = '16px';
     document.getElementById("clrB").style.height = '16px';
@@ -93,6 +96,26 @@ document.getElementById("cleaner").onclick = function() {
     document.getElementById("crayon").style.background = "";
     document.getElementById("marker").style.background = "";
 
+};
+
+// завантажуємо шаблон для розмальовки
+document.getElementById("star").onclick = function() {
+    img.src = "icon/pic1.png";
+    canvas.width = 600,
+    canvas.height = 470;    
+    ctx.drawImage( img, 0, 0, 600, 470);
+};
+document.getElementById("clock").onclick = function() {
+    img.src = "icon/pic2.png";
+    canvas.width = 600,
+    canvas.height = 470;    
+    ctx.drawImage( img, 0, 0, 600, 470);
+};
+document.getElementById("elef").onclick = function() {
+    img.src = "icon/pic3.png";
+    canvas.width = 556,
+    canvas.height = 500;    
+    ctx.drawImage( img, 0, 0, 556, 500);
 };
 
 
