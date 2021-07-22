@@ -6,15 +6,29 @@ w = canvas.width,
 h = canvas.height;                 
 var mouse = { x:0, y:0};
 var draw = false;             
-canvas.addEventListener("mousedown", function(e){                 
-    mouse.x = e.pageX - this.offsetLeft;
-    mouse.y = e.pageY - this.offsetTop;
-    draw = true;
-    ctx.beginPath();
-    ctx.moveTo(mouse.x, mouse.y);
+canvas.addEventListener("mousedown", function(e){
+    if(event.which == 1 ) {                 
+        mouse.x = e.pageX - this.offsetLeft;
+        mouse.y = e.pageY - this.offsetTop;
+        draw = true;
+        ctx.beginPath();
+        ctx.moveTo(mouse.x, mouse.y);
+    }
+    if(event.which == 3 ) {                 
+        mouse.x = e.pageX - this.offsetLeft;
+        mouse.y = e.pageY - this.offsetTop;
+        draw = true;
+        ctx.beginPath();
+        ctx.strokeStyle = "#f5fffa";
+        ctx.moveTo(mouse.x, mouse.y);
+    document.getElementById("clrR").style.height = '16px';
+    document.getElementById("clrG").style.height = '16px';
+    document.getElementById("clrB").style.height = '16px';
+    document.getElementById("clrY").style.height = '16px';
+    }
 });
 canvas.addEventListener("mousemove", function(e){                 
-    if(draw==true){                  
+    if(draw == true){                  
         mouse.x = e.pageX - this.offsetLeft;
         mouse.y = e.pageY - this.offsetTop;
         ctx.lineTo(mouse.x, mouse.y);
@@ -22,32 +36,42 @@ canvas.addEventListener("mousemove", function(e){
     }
 });
 canvas.addEventListener("mouseup", function(e){
-    mouse.x = e.pageX - this.offsetLeft;
-    mouse.y = e.pageY - this.offsetTop;
-    ctx.lineTo(mouse.x, mouse.y);
-    ctx.stroke();
-    ctx.closePath();
-    draw = false;
+    if(event.which == 1 ) {
+        mouse.x = e.pageX - this.offsetLeft;
+        mouse.y = e.pageY - this.offsetTop;
+        ctx.lineTo(mouse.x, mouse.y);
+        ctx.stroke();
+        ctx.closePath();
+        draw = false;
+    }
+    if(event.which == 3 ) {
+        mouse.x = e.pageX - this.offsetLeft;
+        mouse.y = e.pageY - this.offsetTop;
+        ctx.lineTo(mouse.x, mouse.y);
+        ctx.stroke();
+        ctx.closePath();
+        draw = false;
+    }
 });
 
 //вибрати розмір пера
 document.getElementById("pencil").onclick = function() {    
     ctx.lineWidth = 2;
-    document.getElementById("pencil").style.background = "grey";
+    document.getElementById("pencil").style.background = "#ffa500";
     document.getElementById("crayon").style.background = "";
     document.getElementById("marker").style.background = "";
 };
 document.getElementById("crayon").onclick = function() {    
     ctx.lineWidth = 4;
     document.getElementById("pencil").style.background = "";
-    document.getElementById("crayon").style.background = "grey";
+    document.getElementById("crayon").style.background = "#ffa500";
     document.getElementById("marker").style.background = "";
 };
 document.getElementById("marker").onclick = function() {    
     ctx.lineWidth = 7;
     document.getElementById("pencil").style.background = "";
     document.getElementById("crayon").style.background = "";
-    document.getElementById("marker").style.background = "grey";
+    document.getElementById("marker").style.background = "#ffa500";
 };
 
 
@@ -100,10 +124,11 @@ document.getElementById("cleaner").onclick = function() {
 
 // завантажуємо шаблон для розмальовки
 document.getElementById("star").onclick = function() {
-    img.src = "icon/pic1.png";
+    img.src = "icon/pic1.png";    
     canvas.width = 600,
     canvas.height = 470;    
-    ctx.drawImage( img, 0, 0, 600, 470);
+    ctx.drawImage(img, 0, 0, 600, 470);
+    
 };
 document.getElementById("clock").onclick = function() {
     img.src = "icon/pic2.png";
@@ -117,20 +142,6 @@ document.getElementById("elef").onclick = function() {
     canvas.height = 500;    
     ctx.drawImage( img, 0, 0, 556, 500);
 };
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
 
 //всановлюємо розмір полотна
 document.getElementById("r1").oninput = function () {
