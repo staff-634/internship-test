@@ -1,16 +1,19 @@
-main{    
+header, main{    
     width: 95%;
     margin: 0 auto;
+	padding: 10px;
+}
+header{  
+	display: inline-flex;
+	justify-content: space-around;
+	background-color: #00ced1;
 }
 button{
 	border-radius: 5px;
 }
 button img{
-	width: 32px;
+	width: 36px;
 	height: 32px;
-}
-.hr{
-	display: inline-block;
 }
 .hr button{
 	width: 16px;
@@ -28,9 +31,59 @@ button img{
 #clrY{
 	background-color: yellow;
 }
+#imw{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: none;
+    background-color: rgba(150, 150, 150, .5);
+    backdrop-filter: blur(5px);
+}
+#cc{
+	float: right;
+	margin-top: 5px;
+	margin-right: 5px;
+	border-radius: 10px;
+}
+ul{
+	display: block;
+	width: 400px;
+	margin: 0 auto;
+	margin-top: 100px;
+	padding-bottom: 10px;
+	background-color: #f5fffa;
+	border: 1px solid #00ced1;
+	border-radius: 5px;
+	list-style: none;
+}
+li{
+	margin-top: 10px;
+}
+span{	
+	color: red;
+}
 canvas{
 	margin-top: 20px;
 	background-color: #f5fffa;
 	border: 1px solid #00ced1;
-	box-shadow: 0px 5px 40px 10px rgba(34, 80, 52, 0.2);
+	box-shadow: 0px 5px 40px 10px rgba(34, 80, 52, 0.2);	
+}
+i{
+  color: #fff;
+  cursor: pointer;
+  animation: neon 1.5s ease-in-out infinite alternate;
+}
+i:hover{
+  color: #FF1177;
+  animation: none;
+}
+@-webkit-keyframes neon {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #FF1177, 0 0 70px #FF1177, 0 0 80px #FF1177, 0 0 100px #FF1177, 0 0 150px #FF1177;
+  }
+  to {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #FF1177, 0 0 35px #FF1177, 0 0 40px #FF1177, 0 0 50px #FF1177, 0 0 75px #FF1177;
+  }
 }

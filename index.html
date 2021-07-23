@@ -6,31 +6,59 @@
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <main>
-        <button id="pencil"><img src="icon/pencil.png"></button>
-        <button id="crayon"><img src="icon/crayon.png"></button>
-        <button id="marker"><img src="icon/marker.png"></button>
+    <header>
+        <i onclick="cartClick()">інструкція</i>
+        <div class="hr">            
+            <label for="r1">ширина полотна</label>
+            <input type="range" min="400" max="1200" step="3" id="r1" value="0"></br>
+            <label for="r2">висота полотна</label>
+            <input type="range" min="400" max="800" step="2" id="r2" value="0">            
+        </div>
+        <div>
+            <button id="pencil"><img src="icon/pencil.png"></button>
+            <button id="crayon"><img src="icon/crayon.png"></button>
+            <button id="marker"><img src="icon/marker.png"></button>            
+        </div>        
         <div class="hr">
             <button id="clrR"></button>
             <button id="clrG"></button>
             <button id="clrB"></button>
             <button id="clrY"></button>           
-        </div>
-        <button id="star"><img src="icon/pic1.png"></button>
-        <button id="clock"><img src="icon/pic2.png"></button>
-        <button id="elef"><img src="icon/pic3.png"></button>
+        </div>        
+        <div>
+            <button id="star"><img src="icon/pic1.png"></button>
+            <button id="clock"><img src="icon/pic2.png"></button>
+            <button id="elef"><img src="icon/pic3.png"></button>           
+        </div>        
         <button id="cleaner"><img src="icon/trash.png"></button>
-        <button><img src="icon/save.png"></button>
-        <div class="hr">
-            <label for="r1">ширина полотна</label>
-            <input type="range" min="400" max="1200" step="3" id="r1"></br>
-            <label for="r2">висота полотна</label>
-            <input type="range" min="400" max="800" step="2" id="r2">            
+    </header>
+    <main id="main">
+        <div id="imw">
+            <ul>
+                <button onclick="cartClose()" id="cc">X</button>
+                <li><img src="icon/pic5.png"> - обираємо розмір холста.</br><span>Збільшити або зменшити фон для розмальовки неможливо, якщо Ви щось намалювали та раптом захотіли збільшити або зменшити холст все зітреться!</span></li>
+                <li>
+                    <img src="icon/pencil1.png">
+                    <img src="icon/crayon1.png">
+                    <img src="icon/marker1.png">
+                    - обираємо чим будемо малювати.
+                </li>
+                <li><img src="icon/pic4.png"> - обираємо колір для малювання.</li>
+                <li>
+                    <img src="icon/pic11.png">
+                    <img src="icon/pic21.png">
+                    <img src="icon/pic31.png">                    
+                    - обираємо фон для розмальовки.
+                </li>
+                <li><img src="icon/lmb.png"> - Для малювання натискаємо Ліву Кнопку Миши(ЛКМ).</li>
+                <li><img src="icon/rmb.png"> - Для стирання намальованного натискаємо Праву Кнопку Миши(ПКМ) та використовуємо як звичайний ластик.</li>
+                <li>
+                    <img src="icon/trash1.png">                    
+                    - при натисканні на корзинку наш холст повністю очищується.
+                </li>
+            </ul>
         </div>
-        <button id="sep">фільтр1</button>
-        <button id="blr">фільтр2</button>
-        <button><img src="icon/rotate.png"></button></br>
-    	<canvas id="canvas" width="400px" height="400px"></canvas>            	
+    	<center><canvas id="canvas" width="400px" height="400px"></canvas></center>
     </main>
 	<script src="js/cofee.js"></script>
 </body>

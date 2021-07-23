@@ -1,9 +1,10 @@
 let canvas = document.getElementById("canvas");
 let ctx = canvas.getContext('2d');
 let img = new Image();
-// малюємо на полотні
 w = canvas.width,
-h = canvas.height;                 
+h = canvas.height;
+
+// малюємо та стираємо                 
 var mouse = { x:0, y:0};
 var draw = false;             
 canvas.addEventListener("mousedown", function(e){
@@ -74,7 +75,6 @@ document.getElementById("marker").onclick = function() {
     document.getElementById("marker").style.background = "#ffa500";
 };
 
-
 //вибрати колір
 document.getElementById("clrR").onclick = function() {    
     ctx.strokeStyle = "red";
@@ -119,7 +119,6 @@ document.getElementById("cleaner").onclick = function() {
     document.getElementById("pencil").style.background = "";
     document.getElementById("crayon").style.background = "";
     document.getElementById("marker").style.background = "";
-
 };
 
 // завантажуємо шаблон для розмальовки
@@ -151,4 +150,12 @@ document.getElementById("r1").oninput = function () {
 document.getElementById("r2").oninput = function () {
     let rngY = document.getElementById("r2");
     canvas.height = rngY.value;
+}
+
+// показати інструкцію
+function cartClick() {
+    imw.style.display = "block" ;
+}
+function cartClose() {
+    imw.style.display = "none" ;
 }
